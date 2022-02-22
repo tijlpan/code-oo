@@ -1,11 +1,8 @@
 <?php
 require_once __DIR__ . '/bootstrap.php';
 
-$shipLoader = new ShipLoader(
-    $configuration['db_dsn'],
-    $configuration['db_user'],
-    $configuration['db_pass']
-);
+$container = new Container($configuration);
+$shipLoader = $container->getShipLoader();
 $ships = $shipLoader->getShips();
 
 $errorMessage = '';
